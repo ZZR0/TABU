@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/zzr/SUSTC/CSE5012_Evolutionary_Computation/Assignment2/OpenTS_10-exp10/OpenTS.jar"
+    ]
+}

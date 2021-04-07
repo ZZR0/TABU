@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "OpenTS_10-exp10/OpenTS.jar"
+    ]
+}
