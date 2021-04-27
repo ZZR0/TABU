@@ -3,7 +3,7 @@
  * @email jing@xie.us
  * Please only use the code for academic purposes.
  */
-package tabu.TCYB;
+
 
 import java.util.ArrayList;
 

@@ -3,7 +3,7 @@
  * @email jing@xie.us
  * Please only use the code for academic purposes.
  */
-package tabu.TCYB;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -20,9 +20,9 @@ import java.util.StringTokenizer;
 public class SLAP {
 	
 	public Hashtable<String, ArrayList<Item>> product; // Each product has a list of items
-	public Hashtable<String, ArrayList<Integer>> freq;
-	public int nS;
-	public int nL;
+	public Hashtable<String, ArrayList<Integer>> freq; // product: item freq
+	public int nS; // 货柜数
+	public int nL; // 货柜长
 	public ArrayList<Integer> S; //number of shelves
 	public ArrayList<Integer> L;
 	public int n; //number of items
@@ -108,6 +108,7 @@ public class SLAP {
 			Iterator<String> keys = (Iterator<String>) this.product.keys();
 			while (keys.hasNext()) {
 				String p = keys.next();
+				// 从大到小
 				Collections.sort(this.product.get(p), new Comparator<Item>() {
 															@Override
 															public int compare(Item o1, Item o2) {
@@ -126,7 +127,7 @@ public class SLAP {
 				this.freq.put(p, pops);
 			}
 			
-			this.n=0;
+			this.n=0; // 有多少item
 			for(ArrayList<Item> it: this.product.values()){
 				this.n += it.size();
 				this.Itm.addAll(it);

@@ -4,7 +4,7 @@
  * Please only use the code for academic purposes.
  */
 
-package tabu.TCYB;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -133,7 +133,7 @@ public class Layout {
 		
 		for(ArrayList<ArrayList<Item>> irow: rows){
 			for(ArrayList<Item> grp: irow){
-				cnt.put(grp.get(0).product, cnt.get(grp.get(0).product) +1);
+				cnt.put(grp.get(0).product, cnt.get(grp.get(0).product) +1); // 分组不大于2
 			}
 		}
 		
@@ -183,7 +183,7 @@ public class Layout {
 			cnt.put(i, 0);
 		}
 		
-		//Check the appearance of all items in this.row
+		//Check the appearance of all items in this.row 每个item出现且只出现1次
 		for(ArrayList<ArrayList<Item>> irow: this.row){
 			for(ArrayList<Item> grp: irow){
 				for(Item i: grp){
@@ -319,6 +319,7 @@ public class Layout {
 			sum += i.freq;
 		}
 		return sum/x.size();
+		// return sum;
 	}
 
 	/**

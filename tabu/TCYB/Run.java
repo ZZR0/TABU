@@ -1,4 +1,4 @@
-package tabu.TCYB;
+
 
 import java.io.File;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import org.coinor.opents.TabuSearch;
 public class Run {
  	
 	public static void main(String argv[]){
-		runWithParameters("tabu/TCYB/10-1", 5, 0.7, 10);
+		runWithParameters("TCYB/10-3", 5, 0.7, 20);
 		 
 	}
 	

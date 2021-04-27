@@ -3,7 +3,7 @@
  * @email jing@xie.us
  * Please only use the code for academic purposes.
  */
-package tabu.TCYB;
+
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -246,7 +246,7 @@ public class Search {
 		
 		for(int atmps = 0; atmps < ntries; atmps++){
 			Layout layout = new Layout(slap, "Init", this.random);
-			ArrayList<ArrayList<Item>> groups = new ArrayList<ArrayList<Item>>();
+			ArrayList<ArrayList<Item>> groups = new ArrayList<ArrayList<Item>>(); // [3, 3]
 			
 			for(ArrayList<Item> p : slap.product.values()){
 				//int parameter
@@ -255,9 +255,10 @@ public class Search {
 				param[0] = ArrayList.class;
 				
 				try{
+					// splitRandom()
 					Method method = getClass().getDeclaredMethod(splitMethod, param);
 				    Object objGrps =  method.invoke(this,p, slap.nL);
-				    
+				    // 1product [itemlist1, itemlist2]
 				    ArrayList<ArrayList<Item>> grps = (ArrayList<ArrayList<Item>>)objGrps;
 					for(ArrayList<Item> grp: grps){
 						groups.add(grp);
@@ -303,7 +304,7 @@ public class Search {
 												return Integer.compare(-sum(l1), -sum(l2));
 											}
 										});
-				
+				// freq和从大到小
 				//	            groups.sort(key = lambda x: (-len(x), -sum(xx.freq for xx in x))) # sort by length then frequency						
 				Collections.sort(groups, new Comparator<ArrayList<Item>>() {
 												@Override
@@ -311,6 +312,7 @@ public class Search {
 											        return Integer.compare(  -l1.size(), -l2.size() );  
 												}
 											});
+				// item数从大到小
 			}
 			
 			//printGroups(groups);
@@ -318,16 +320,16 @@ public class Search {
 			for(ArrayList<Item> grp: groups){
 				ArrayList<Integer> rowLength = new ArrayList<Integer>();
 				for(int r: slap.S){
-					 rowLength.add( Layout.countARow(layout.row.get(r)));
+					 rowLength.add( Layout.countARow(layout.row.get(r))); // 每个货柜以占用的长度
 				}
 				
 				if(slap.nL -  Collections.min(rowLength)  < grp.size()){
 	                layout = null;
-	                break; // give up
+	                break; // give up 所有货柜都放不下
 				}
 				else
 				{
-					 // look for closest location where item will fit
+					 // look for closest location where item will fit 离出口最近的位置
 		                int cnt = Integer.MAX_VALUE;
 		                int ridx = 0;
 		                for(int r: slap.S){
@@ -378,7 +380,7 @@ public class Search {
 	}
 	
 	public Layout init(SLAP slap){
-		String sMeth = pickSplitMth();
+		String sMeth = pickSplitMth(); // splitRandom
 		Layout	soln = this.creatLayout(slap, sMeth, false);	
 		return soln;
 	}

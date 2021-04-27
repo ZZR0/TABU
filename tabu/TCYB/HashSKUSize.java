@@ -3,7 +3,7 @@
  * @email jing@xie.us
  * Please only use the code for academic purposes.
  */
-package tabu.TCYB;
+
 
 public class HashSKUSize {
 	public String SKU;

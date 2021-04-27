@@ -4,7 +4,7 @@
  * Please only use the code for academic purposes.
  */
 
-package tabu.TCYB;
+
 
 public class Item {
 	public String product;
